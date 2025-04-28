@@ -1,8 +1,9 @@
 <?php
-class Students {
+class Students
+{
     private $conn;
     private $tblName = "tblstudents";
-    
+
     public $stuId;
     public $stuName;
     public $gender;
@@ -17,16 +18,17 @@ class Students {
     public $regDate;
     public $ModifiedDate;
 
-    public function __construct($db) {
-        $this->conn = $db;
+    public function __construct($conn)
+    {
+        $this->conn = $conn;
     }
-    public function StuAddNew() {
-
-        $query = "INSERT INTO " . $this->tblName . " SET StuName=:stuName, Gender=:gender, 
-                    DOB=:dob, POB=:pob, Phone=:phone, Email=:email, Addr=:addr, 
-                    FacId=:facId, GenId=:genId, RegDate=:regDate";
+    public function StuAddNew()
+    {
+        $query = "INSERT INTO " . $this->tblName . " SET stuName=:stuName, gender=:gender, 
+                    dob=:dob, pob=:pob, phone=:phone, Email=:email, address=:addr, 
+                    facId=:facId, genId=:genId, regDate=:regDate";
         $cmd = $this->conn->prepare($query);
-        
+
         // Sanitize input
         $this->stuName = htmlspecialchars(strip_tags($this->stuName));
         $this->gender = htmlspecialchars(strip_tags($this->gender));
@@ -38,7 +40,7 @@ class Students {
         $this->facId = htmlspecialchars(strip_tags($this->facId));
         $this->genId = htmlspecialchars(strip_tags($this->genId));
         $this->regDate = htmlspecialchars(strip_tags($this->regDate));
-        
+
         // Bind parameters
         $cmd->bindParam(":stuName", $this->stuName);
         $cmd->bindParam(":gender", $this->gender);
@@ -50,8 +52,8 @@ class Students {
         $cmd->bindParam(":facId", $this->facId);
         $cmd->bindParam(":genId", $this->genId);
         $cmd->bindParam(":regDate", $this->regDate);
-              
-        if($cmd->execute()) {
+
+        if ($cmd->execute()) {
             return true;
         }
         return false;
