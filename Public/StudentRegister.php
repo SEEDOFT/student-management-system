@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+require_once 'header.php';
 require_once 'DBClass.php';
 require_once 'FacultyClass.php';
 
@@ -96,5 +96,5 @@ $facData = $fac->index();
 </table>
 
 <?php
-include 'footer.php';
+require_once 'footer.php';
 ?>

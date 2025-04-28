@@ -25,7 +25,7 @@
             <a class="nav-link" href="StudentRegister.php">Registration</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="attendance.php">Attendance</a>
+            <a class="nav-link" href="StudentAttendance.php">Attendance</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="scores.php">Scores</a>

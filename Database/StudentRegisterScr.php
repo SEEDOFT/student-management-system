@@ -1,7 +1,7 @@
 <?php
-require_once("DBClass.php");
-require_once("StudentClass.php");
-require_once("RegisterClass.php");
+require_once "DBClass.php";
+require_once "StudentClass.php";
+require_once "RegisterClass.php";
 //Conncet to Database
 $conn1 = new Database();
 $conn = $conn1->getConnection();
